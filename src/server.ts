@@ -13,23 +13,22 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
 
+
+  // filter image endpoint
   app.get('/filteredimage',async (req,res) => {
     const {image_url} = req.query;
 
     if(!image_url){
       res.status(400)
-      .send('image_url is required');
+          .send('image_url is required');
     }
 
     const result = await filterImageFromURL(image_url);
-    //Save to S3 bucket
-     res.status(200)
-    .sendFile(result,{},async function(err){
-      if(err){
-        
-      }else{
-        await deleteLocalFiles([result]);
-      }
+    res.status(200)
+        .sendFile(result,{},async function(err){
+          if(!err){
+            await deleteLocalFiles([result]);
+          }
     });
    
   });
