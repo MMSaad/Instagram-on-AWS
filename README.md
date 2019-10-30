@@ -1,5 +1,17 @@
 # Udagram Image Filtering Microservice
 
+## Deployement URL
+
+### Custom sub-domain
+```
+http://imagefilter.puretechksa.co/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg
+```
+
+### Elastic Beanstalk  Url
+```
+http://udagram-env.btkrt2zf33.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg
+```
+
 ## Tasks
 
 ### Setup Node Enviornment
